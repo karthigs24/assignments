@@ -18,7 +18,7 @@ describe('isPalindrome', () => {
 
 	test('handles case-insensitivity correctly', () => {
 		expect(isPalindrome('Anna')).toBe(true);
-		expect(isPalindrome('aNnA')).toBe(true);
+		expect(isPalindrome('')).toBe(true);
 		expect(isPalindrome('Madam')).toBe(true);
 		expect(isPalindrome('MaDaM')).toBe(true);
 		expect(isPalindrome('RaCeCaR')).toBe(true);
