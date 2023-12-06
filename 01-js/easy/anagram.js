@@ -8,7 +8,6 @@ function isAnagram(str1, str2) {
   const words1 = str1.toLowerCase();
   const words2 = str2.toLowerCase();
   if (words1.length !== words2.length) {
-    console.log("The given words are not anagrams!");
     return false;
   }
   const sorted1 = words1.split('').sort().join('');

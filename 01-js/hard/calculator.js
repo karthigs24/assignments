@@ -18,10 +18,33 @@
 
 class Calculator {
 
-constructor(){
-  return 
+  constructor() { return this.result = 0; }
 
-}
+  add(number) { this.result += number; }
+  subtract(number) { this.result -= number; }
+  multiply(number) { this.result *= number; }
+  divide(number) { if (number === 0) { throw new Error("Cannot be zero") } else { this.result /= number; } }
+  clear() { this.result = 0 }
+  getResult() { return this.result }
+  calculate(expression) {
+    const spacesRemoved = expression.replace(/\s+/g, '');
+    if (!/^[0-9+\-*/(). ]+$/.test(spacesRemoved)) {
+      throw new Error("Invalid characters in the expression");
+    }
+    try {
+      const final = eval(spacesRemoved)
+      if (!isFinite(final)) {
+        throw new Error("Infinite")
+      }
+      return this.result = final
+    } catch (Error) {
+      if (Error.message === "Division by zero") {
+        throw new Error("Cannot divide by zero")
+      } else {
+        throw new Error("Invalid Expression")
+      }
+    }
+  }
 }
 
 module.exports = Calculator;
